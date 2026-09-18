@@ -9,55 +9,55 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500;600&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ivory:#fdf3f2;
-    --ivory-2:#f7e2e6;
-    --ink:#3a0e26;
-    --ink-2:#4a0f30;
-    --indigo:#5c1338;
-    --indigo-deep:#330a21;
-    --pink-bright:#e8437f;
-    --gold:#d6a545;
-    --gold-soft:#eccb8a;
-    --terracotta:#c31257;
-    --terracotta-soft:#e0568c;
-    --line:rgba(74,15,48,0.14);
-    --text:#2c1420;
-    --text-soft:#7c5866;
-    --card-bg:#fffbfa;
-    --shadow:0 18px 45px rgba(74,15,48,0.16);
+    --ivory:#faf3e6;
+    --ivory-2:#f1e3c8;
+    --ink:#2b1b12;
+    --ink-2:#3a2416;
+    --indigo:#4a2f1c;
+    --indigo-deep:#1e130b;
+    --pink-bright:#c9974b;
+    --gold:#c9974b;
+    --gold-soft:#e3c98f;
+    --terracotta:#8a5a26;
+    --terracotta-soft:#c9974b;
+    --line:rgba(43,27,18,0.16);
+    --text:#2b1b12;
+    --text-soft:#7a6650;
+    --card-bg:#fffcf5;
+    --shadow:0 18px 45px rgba(43,27,18,0.18);
     --hero-photo:url(assets/photo-1.jpeg);
     --photo-invite:url(assets/pagne-mariee.png);
     --photo-timeline:url(assets/photo-2.png);
     --photo-dress:url(assets/pagne-marie.png);
-    --wash:rgba(255,251,250,0.87);
-    --wash-pale:rgba(255,253,252,0.94);
-    --wash-soft:rgba(255,251,250,0.5);
+    --wash:rgba(255,252,245,0.87);
+    --wash-pale:rgba(255,253,250,0.94);
+    --wash-soft:rgba(255,252,245,0.5);
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --ivory:#22091a;
-      --ivory-2:#2c0d21;
-      --text:#f4e3ea;
-      --text-soft:#c9a3b5;
-      --line:rgba(236,203,138,0.16);
-      --card-bg:#2c0d21;
+      --ivory:#1c1208;
+      --ivory-2:#26190e;
+      --text:#f1e3c8;
+      --text-soft:#c9ad84;
+      --line:rgba(227,201,143,0.16);
+      --card-bg:#26190e;
       --shadow:0 18px 45px rgba(0,0,0,0.5);
-      --wash:rgba(34,9,26,0.82);
-      --wash-pale:rgba(34,9,26,0.88);
-      --wash-soft:rgba(34,9,26,0.48);
+      --wash:rgba(28,18,8,0.82);
+      --wash-pale:rgba(28,18,8,0.88);
+      --wash-soft:rgba(28,18,8,0.48);
     }
   }
   :root[data-theme="dark"]{
-    --ivory:#22091a;
-    --ivory-2:#2c0d21;
-    --text:#f4e3ea;
-    --text-soft:#c9a3b5;
-    --line:rgba(236,203,138,0.16);
-    --card-bg:#2c0d21;
+    --ivory:#1c1208;
+    --ivory-2:#26190e;
+    --text:#f1e3c8;
+    --text-soft:#c9ad84;
+    --line:rgba(227,201,143,0.16);
+    --card-bg:#26190e;
     --shadow:0 18px 45px rgba(0,0,0,0.5);
-    --wash:rgba(34,9,26,0.82);
-    --wash-pale:rgba(34,9,26,0.88);
-    --wash-soft:rgba(34,9,26,0.48);
+    --wash:rgba(28,18,8,0.82);
+    --wash-pale:rgba(28,18,8,0.88);
+    --wash-soft:rgba(28,18,8,0.48);
   }
 
   *{box-sizing:border-box;}
@@ -77,7 +77,7 @@
   .section-photo-bg{position:relative; overflow:hidden;}
   .section-photo-bg .bg-img{
     position:absolute; inset:-26px; background-size:cover; background-position:center;
-    filter:blur(28px) saturate(1.08); transform:scale(1.18); z-index:0;
+    filter:blur(28px) saturate(0.75) grayscale(30%); transform:scale(1.18); z-index:0;
   }
   .section-photo-bg .bg-wash{position:absolute; inset:0; z-index:1; background:var(--wash);}
   .section-photo-bg.pale .bg-wash{background:var(--wash-pale);}
@@ -98,19 +98,25 @@
     position:relative;
     min-height:100vh;
     min-height:100dvh;
-    background-image:
-      linear-gradient(180deg, rgba(20,5,15,0.4) 0%, rgba(20,5,15,0) 15%, rgba(232,67,127,0) 42%, rgba(163,25,88,0.42) 55%, rgba(96,16,58,0.8) 72%, rgba(51,10,33,0.95) 88%, var(--indigo-deep) 100%),
-      var(--hero-photo);
-    background-size:cover;
-    background-position:center top;
+    background-color:var(--indigo-deep);
     color:var(--ivory);
     display:flex; flex-direction:column; align-items:center; justify-content:space-between;
     text-align:center; overflow:hidden; padding:52px 20px 72px;
   }
+  .hero::before{
+    content:""; position:absolute; inset:0; z-index:0;
+    background-image:var(--hero-photo);
+    background-size:cover; background-position:center top;
+    filter:grayscale(90%) saturate(0.5) brightness(0.88) contrast(1.05);
+  }
+  .hero-gradient{
+    position:absolute; inset:0; z-index:1; pointer-events:none;
+    background-image:linear-gradient(180deg, rgba(20,13,7,0.4) 0%, rgba(20,13,7,0) 15%, rgba(201,151,75,0) 42%, rgba(150,108,45,0.4) 55%, rgba(90,58,28,0.8) 72%, rgba(43,27,18,0.95) 88%, var(--indigo-deep) 100%);
+  }
   #hero-canvas{position:absolute; inset:0; width:100%; height:100%; opacity:.85; mix-blend-mode:screen;}
   .hero-veil{
     position:absolute; inset:0;
-    background:radial-gradient(60% 45% at 50% 100%, rgba(74,15,48,0.5), transparent 70%);
+    background:radial-gradient(60% 45% at 50% 100%, rgba(43,27,18,0.5), transparent 70%);
     pointer-events:none;
   }
   .hero-top{position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; gap:12px;}
@@ -160,11 +166,35 @@
   .hero-date .p{
     font-size:12.5px; letter-spacing:.18em; text-transform:uppercase; color:#f6d98a;
     text-shadow:0 2px 10px rgba(20,5,15,0.7);
+    margin-top:14px;
   }
+  .countdown{display:flex; align-items:center; gap:14px;}
+  .countdown .c-unit{display:flex; flex-direction:column; align-items:center; gap:4px; min-width:44px;}
+  .countdown .c-num{
+    font-family:'Fraunces',serif; font-size:1.5rem; font-weight:500; color:#ffffff;
+    text-shadow:0 2px 14px rgba(20,5,15,0.75), 0 1px 4px rgba(20,5,15,0.9);
+    line-height:1;
+  }
+  .countdown .c-label{
+    font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:#f6d98a;
+    text-shadow:0 2px 10px rgba(20,5,15,0.7);
+  }
+  .countdown .c-sep{color:var(--gold-soft); font-size:1.2rem; margin-top:-14px; opacity:.6;}
+  .hero-map-btn{
+    margin-top:20px; display:inline-flex; align-items:center; gap:7px;
+    padding:11px 22px; border:1px solid var(--gold-soft); border-radius:30px;
+    color:#ffffff; font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+    text-decoration:none; background:rgba(255,255,255,0.07);
+    text-shadow:0 2px 10px rgba(20,13,7,0.7);
+    opacity:0; transform:translateY(10px);
+    animation:riseIn .9s cubic-bezier(.2,.8,.2,1) 1.85s forwards;
+    transition:background .2s ease;
+  }
+  .hero-map-btn:hover{background:rgba(255,255,255,0.16);}
   .hero-scroll{
     position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
     opacity:0; animation:riseIn 1s ease 2.1s forwards;
-    display:flex; flex-direction:column; align-items:center; gap:8px; color:#e0aec2; font-size:10.5px;
+    display:flex; flex-direction:column; align-items:center; gap:8px; color:#cdb896; font-size:10.5px;
     letter-spacing:.3em; text-transform:uppercase;
   }
   .hero-scroll .stick{width:1px;height:28px;background:linear-gradient(var(--gold),transparent); animation:scrollPulse 1.8s ease-in-out infinite;}
@@ -260,7 +290,7 @@
     flex:1 1 220px; max-width:260px; background:var(--card-bg); border:1px solid var(--line);
     border-radius:2px; overflow:hidden; box-shadow:var(--shadow);
   }
-  .swatch img{width:100%; height:170px; object-fit:cover; display:block;}
+  .swatch img{width:100%; height:170px; object-fit:cover; display:block; filter:saturate(0.85) grayscale(20%);}
   .swatch .cap{padding:16px 18px 20px; text-align:center;}
   .swatch .cap .tag{font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold);}
   .swatch .cap .title{font-family:'Fraunces',serif; font-size:1.15rem; margin-top:6px;}
@@ -290,6 +320,9 @@
   .gallery-grid .ph:nth-child(3){aspect-ratio:3/4;}
   .gallery-grid .ph img{width:100%; height:100%; object-fit:cover; object-position:center 12%; display:block; transition:transform .6s ease;}
   .gallery-grid .ph:hover img{transform:scale(1.05);}
+  .gallery-single{margin-top:36px; border-radius:2px; overflow:hidden; box-shadow:var(--shadow);}
+  .gallery-single img{width:100%; aspect-ratio:3/4; object-fit:cover; display:block; filter:grayscale(90%) saturate(0.5) contrast(1.05);}
+  .gift-note{margin-top:28px; text-align:center; color:var(--text-soft); font-size:14.5px; max-width:360px; margin-inline:auto; line-height:1.8;}
 
   /* ---------- CONTACTS ---------- */
   .contact-row{display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:34px;}
@@ -314,6 +347,10 @@
   footer .script{color:var(--gold); font-size:2rem;}
   footer .names{font-family:'Fraunces',serif; color:#ffffff; font-size:1.2rem; margin-top:8px;}
   footer .fine{margin-top:18px; font-size:11.5px; letter-spacing:.1em; color:#8f8974;}
+  .footer-couple{display:flex; align-items:center; justify-content:center; gap:14px; margin-top:8px;}
+  .footer-couple .who{font-family:'Fraunces',serif; font-size:1.5rem; font-weight:500; color:#ffffff; letter-spacing:.01em;}
+  .footer-couple .amp{font-family:'Mrs Saint Delafield',cursive; color:var(--gold-soft); font-size:1.8rem;}
+  .footer-countdown{margin-top:26px; justify-content:center;}
 
   @media (max-width:480px){
     section{padding-block:56px;}
@@ -329,6 +366,7 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
+  <div class="hero-gradient"></div>
   <canvas id="hero-canvas"></canvas>
   <div class="hero-veil"></div>
   <div class="hero-top">
@@ -343,11 +381,21 @@
       <span class="hero-amp">&amp;</span>
       <span class="name" id="n2"></span>
     </div>
-    <p class="hero-sub">Deux familles, deux chemins, une seule alliance &mdash; un amour béni pour une vie à deux.</p>
+    <p class="hero-sub">Deux familles, deux pays, une seule alliance &mdash; un amour béni pour une vie à deux.</p>
     <div class="hero-date">
       <div class="d">Samedi 12 Décembre 2026</div>
+      <div class="countdown" id="countdown">
+        <div class="c-unit"><span class="c-num" id="cd-days">00</span><span class="c-label">Jours</span></div>
+        <span class="c-sep">:</span>
+        <div class="c-unit"><span class="c-num" id="cd-hours">00</span><span class="c-label">Heures</span></div>
+        <span class="c-sep">:</span>
+        <div class="c-unit"><span class="c-num" id="cd-min">00</span><span class="c-label">Min</span></div>
+        <span class="c-sep">:</span>
+        <div class="c-unit"><span class="c-num" id="cd-sec">00</span><span class="c-label">Sec</span></div>
+      </div>
       <div class="p">PK18 &middot; Ntoum, Gabon</div>
     </div>
+    <a class="hero-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=PK18%2C%203e%20arrondissement%2C%20Ntoum%2C%20Gabon" target="_blank" rel="noopener">Voir sur la carte &nearr;</a>
   </div>
   <div class="hero-scroll"><span>Découvrir</span><span class="stick"></span></div>
 </section>
@@ -360,13 +408,13 @@
     <div class="reveal">
       <div class="eyebrow" style="text-align:center;">Invitation</div>
       <div class="invite-card" style="margin-top:18px;">
-        <p class="quote">&laquo; Deux familles, deux chemins, une seule alliance,<br>un amour béni pour une vie à deux. &raquo;</p>
+        <p class="quote">&laquo; Deux familles, deux pays, une seule alliance,<br>un amour béni pour une vie à deux. &raquo;</p>
 
         <div class="divider"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
 
         <p class="clans">
           Les clans <b>Aziza</b>, <b>Ayandji</b>, <b>Aguédjé</b>, <b>Guibassa</b> et <b>EFAK</b>,<br>
-          ainsi que les familles <b>Olowolagba</b> et <b>Bokossa</b>,
+          ainsi que les familles <b>Olowolagba</b>, <b>Bokossa</b> et <b>Ogandagu&rsquo;éngouwa</b>,
         </p>
         <p class="invite-body">
           ont l'immense joie et l'honneur de vous faire part du mariage coutumier<br>
@@ -381,9 +429,6 @@
 
         <div class="divider"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
 
-        <p class="verse">&laquo; Pose-moi sur ton c&oelig;ur comme un bijou précieux,<br>garde-moi près de toi,<br>comme un bracelet gravé à ton nom. &raquo;</p>
-        <p class="verse-ref">Cantique des Cantiques 8:6</p>
-
         <p class="venue">
           La cérémonie se tiendra à la <b>résidence familiale</b>,<br>
           <a class="venue-link" href="https://www.google.com/maps/search/?api=1&amp;query=PK18%2C%203e%20arrondissement%2C%20Ntoum%2C%20Gabon" target="_blank" rel="noopener">
@@ -391,11 +436,10 @@
           </a>
         </p>
 
-        <p class="closing">
-          En ce jour exceptionnel où deux familles unissent leurs destins,<br>
-          nous vous invitons à venir partager avec nous la joie, l'amour,<br>
-          la tradition et la bénédiction qui entoureront cette belle union.
-        </p>
+        <div class="divider"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
+
+        <p class="verse">&laquo; Pose-moi sur ton c&oelig;ur comme un bijou précieux,<br>garde-moi près de toi,<br>comme un bracelet gravé à ton nom. &raquo;</p>
+        <p class="verse-ref">Cantique des Cantiques 8:6</p>
       </div>
     </div>
   </div>
@@ -437,7 +481,7 @@
     <div class="reveal" style="text-align:center;">
       <div class="eyebrow">Dress code</div>
       <h2 style="font-size:1.8rem; margin-top:10px;">Le pagne de la famille</h2>
-      <p class="dress-note" style="margin-top:14px;">Chaque camp porte sa propre étoffe &mdash; indigo côté marié, ambre côté mariée &mdash; pour un cortège en harmonie.</p>
+      <p class="dress-note" style="margin-top:14px;">Chaque famille porte sa propre étoffe &mdash; indigo côté marié, ambre côté mariée &mdash; pour un cortège en harmonie.</p>
     </div>
 
     <div class="swatch-row reveal-stagger">
@@ -472,11 +516,10 @@
       <div class="eyebrow">Notre histoire</div>
       <h2 style="font-size:1.8rem; margin-top:10px;">Sara &amp; Man Su</h2>
     </div>
-    <div class="gallery-grid">
-      <div class="ph"><img src="assets/photo-1.jpeg" alt="Sara et Man Su, Paris"></div>
-      <div class="ph"><img src="assets/photo-2.png" alt="Sara et Man Su, champ de tournesols"></div>
-      <div class="ph"><img src="assets/photo-3.png" alt="Sara et Man Su, Luxembourg"></div>
+    <div class="gallery-single reveal">
+      <img src="assets/photo-3.png" alt="Sara et Man Su, Luxembourg">
     </div>
+    <p class="gift-note reveal">Votre présence sera notre plus beau cadeau.<br>Pour ceux qui souhaitent nous offrir un présent,<br>nous privilégions les cadeaux en numéraire.</p>
   </div>
 </section>
 
@@ -510,8 +553,21 @@
 </section>
 
 <footer>
-  <div class="script">Sara &amp; Man Su</div>
+  <div class="footer-couple">
+    <span class="who">Sara</span>
+    <span class="amp">&amp;</span>
+    <span class="who">Man Su</span>
+  </div>
   <div class="names">12 &middot; 12 &middot; 2026</div>
+  <div class="countdown footer-countdown" id="countdown2">
+    <div class="c-unit"><span class="c-num" id="cd2-days">00</span><span class="c-label">Jours</span></div>
+    <span class="c-sep">:</span>
+    <div class="c-unit"><span class="c-num" id="cd2-hours">00</span><span class="c-label">Heures</span></div>
+    <span class="c-sep">:</span>
+    <div class="c-unit"><span class="c-num" id="cd2-min">00</span><span class="c-label">Min</span></div>
+    <span class="c-sep">:</span>
+    <div class="c-unit"><span class="c-num" id="cd2-sec">00</span><span class="c-label">Sec</span></div>
+  </div>
   <div class="fine">PK18, NTOUM &mdash; AVEC AMOUR &amp; GRATITUDE</div>
 </footer>
 
@@ -529,6 +585,31 @@
   }
   buildName(document.getElementById("n1"), "Sara", 0.75);
   buildName(document.getElementById("n2"), "Man Su", 1.05);
+
+  function pad(n){ return String(n).padStart(2,"0"); }
+  function setCountdown(prefix, days, hours, mins, secs){
+    var d = document.getElementById(prefix+"-days");
+    var h = document.getElementById(prefix+"-hours");
+    var m = document.getElementById(prefix+"-min");
+    var s = document.getElementById(prefix+"-sec");
+    if(d) d.textContent = pad(days);
+    if(h) h.textContent = pad(hours);
+    if(m) m.textContent = pad(mins);
+    if(s) s.textContent = pad(secs);
+  }
+  function updateCountdown(){
+    var target = new Date("2026-12-12T13:00:00");
+    var diff = target - new Date();
+    if(diff < 0) diff = 0;
+    var days = Math.floor(diff/(1000*60*60*24));
+    var hours = Math.floor((diff/(1000*60*60))%24);
+    var mins = Math.floor((diff/(1000*60))%60);
+    var secs = Math.floor((diff/1000)%60);
+    setCountdown("cd", days, hours, mins, secs);
+    setCountdown("cd2", days, hours, mins, secs);
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
