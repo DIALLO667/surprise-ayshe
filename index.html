@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sara &amp; Man Su</title>
+<title>Amadou &amp; Ayshe</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500;600&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
@@ -25,9 +25,9 @@
     --text-soft:#7a6650;
     --card-bg:#fffcf5;
     --shadow:0 18px 45px rgba(43,27,18,0.18);
-    --hero-photo:url(assets/photo-1.jpeg);
+    --hero-photo:url(assets/couple.jpeg);
     --photo-invite:url(assets/pagne-mariee.png);
-    --photo-timeline:url(assets/photo-2.png);
+    --photo-timeline:url(assets/couple.jpeg);
     --photo-dress:url(assets/pagne-marie.png);
     --wash:rgba(255,252,245,0.87);
     --wash-pale:rgba(255,253,250,0.94);
@@ -106,8 +106,8 @@
   .hero::before{
     content:""; position:absolute; inset:0; z-index:0;
     background-image:var(--hero-photo);
-    background-size:cover; background-position:center top;
-    filter:grayscale(90%) saturate(0.5) brightness(0.88) contrast(1.05);
+    background-size:cover; background-position:center 22%;
+    filter:brightness(0.92) contrast(1.05);
   }
   .hero-gradient{
     position:absolute; inset:0; z-index:1; pointer-events:none;
@@ -228,10 +228,6 @@
     font-family:'Fraunces',serif; font-style:italic; font-weight:400; font-size:1.12rem;
     color:var(--text); max-width:420px; margin-inline:auto; line-height:1.6;
   }
-  .clans{
-    margin-top:22px; font-size:14px; color:var(--text-soft); line-height:1.9;
-  }
-  .clans b{color:var(--text); font-weight:600;}
   .invite-body{margin-top:20px; font-size:15px; color:var(--text-soft);}
   .couple-block{
     display:flex; align-items:center; justify-content:center; gap:16px; margin-block:28px; flex-wrap:wrap;
@@ -246,14 +242,6 @@
   .venue b{color:var(--text);}
   .venue-link{color:inherit; text-decoration:none; display:inline-block; border-bottom:1px solid var(--terracotta-soft); transition:opacity .2s ease;}
   .venue-link:hover{opacity:.75;}
-  .verse{
-    font-family:'Fraunces',serif; font-style:italic; font-weight:400; font-size:1.02rem;
-    color:var(--terracotta); max-width:340px; margin:0 auto; line-height:1.75;
-  }
-  .verse-ref{
-    font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--text-soft);
-    margin-top:8px;
-  }
   .closing{
     margin-top:26px; font-size:14.5px; color:var(--text-soft); font-style:italic; max-width:400px; margin-inline:auto;
   }
@@ -294,51 +282,15 @@
   .swatch .cap{padding:16px 18px 20px; text-align:center;}
   .swatch .cap .tag{font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold);}
   .swatch .cap .title{font-family:'Fraunces',serif; font-size:1.15rem; margin-top:6px;}
-  .vendor-card{
-    margin-top:30px; background:var(--indigo); color:var(--ivory); border-radius:2px;
-    padding:26px 26px 28px; text-align:center; box-shadow:var(--shadow);
-  }
-  .vendor-card .tag{color:var(--gold-soft); font-size:10.5px; letter-spacing:.24em; text-transform:uppercase;}
-  .vendor-card .name{font-family:'Fraunces',serif; font-size:1.3rem; margin-top:8px;}
-  .vendor-card .addr{color:#cfc9b3; font-size:13.5px; margin-top:6px; display:block; text-decoration:none; border-bottom:1px solid rgba(230,192,127,.4); padding-bottom:2px; width:fit-content; margin-inline:auto;}
-  .vendor-card .addr:hover{color:var(--ivory);}
-  .vendor-card .phones{margin-top:14px; display:flex; flex-direction:column; gap:5px;}
-  .vendor-card .phones a{color:var(--ivory); text-decoration:none; font-size:14.5px; letter-spacing:.02em; border-bottom:1px solid rgba(230,192,127,.4); padding-bottom:1px;}
   .dress-note{margin-top:22px; text-align:center; color:var(--text-soft); font-size:13.5px; max-width:360px; margin-inline:auto;}
 
   /* ---------- GALLERY ---------- */
   .gallery-section{background:var(--ivory-2);}
-  .gallery-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:36px;}
-  .gallery-grid .ph{
-    position:relative; overflow:hidden; border-radius:2px; box-shadow:var(--shadow);
-    opacity:0; transform:translateY(24px) scale(.97);
-    transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);
-  }
-  .gallery-grid .ph.in{opacity:1; transform:translateY(0) scale(1);}
-  .gallery-grid .ph:nth-child(1){grid-column:1/3; aspect-ratio:4/5;}
-  .gallery-grid .ph:nth-child(2){aspect-ratio:3/4;}
-  .gallery-grid .ph:nth-child(3){aspect-ratio:3/4;}
-  .gallery-grid .ph img{width:100%; height:100%; object-fit:cover; object-position:center 12%; display:block; transition:transform .6s ease;}
-  .gallery-grid .ph:hover img{transform:scale(1.05);}
+  .gallery-two{display:flex; gap:12px; margin-top:36px; flex-wrap:wrap;}
+  .gallery-two .gallery-single{flex:1 1 160px; margin-top:0;}
   .gallery-single{margin-top:36px; border-radius:2px; overflow:hidden; box-shadow:var(--shadow);}
-  .gallery-single img{width:100%; aspect-ratio:3/4; object-fit:cover; display:block; filter:grayscale(90%) saturate(0.5) contrast(1.05);}
+  .gallery-single img{width:100%; aspect-ratio:3/4; object-fit:cover; display:block; filter:saturate(0.85) contrast(1.05);}
   .gift-note{margin-top:28px; text-align:center; color:var(--text-soft); font-size:14.5px; max-width:360px; margin-inline:auto; line-height:1.8;}
-
-  /* ---------- CONTACTS ---------- */
-  .contact-row{display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:34px;}
-  .contact-card{
-    flex:1 1 200px; max-width:230px; background:var(--card-bg); border:1px solid var(--line);
-    border-radius:2px; box-shadow:var(--shadow); padding:24px 20px; text-align:center;
-  }
-  .contact-card .c-phone{font-family:'Fraunces',serif; font-size:1.15rem; color:var(--text);}
-  .contact-card .c-actions{margin-top:14px; display:flex; gap:10px; justify-content:center;}
-  .contact-card .c-actions a{
-    font-size:12px; letter-spacing:.08em; text-transform:uppercase; text-decoration:none;
-    color:#fff5e9; background:var(--terracotta); padding:9px 14px; border-radius:2px;
-    transition:opacity .2s ease;
-  }
-  .contact-card .c-actions a:hover{opacity:.85;}
-  .contact-card .c-actions a.whatsapp{background:var(--indigo);}
 
   /* ---------- FOOTER ---------- */
   footer{
@@ -373,7 +325,7 @@
     <div class="hero-motif">
       <svg viewBox="0 0 24 24" fill="none" stroke="#e3c07f" stroke-width="1.2"><path d="M12 21s-7-4.6-9.8-9.2C.4 8.4 2 4.6 5.6 4c2.3-.4 4.3.8 6.4 3 2.1-2.2 4.1-3.4 6.4-3 3.6.6 5.2 4.4 3.4 7.8C19 16.4 12 21 12 21z"/></svg>
     </div>
-    <div class="hero-eyebrow">Mariage coutumier &amp; bénédiction nuptiale</div>
+    <div class="hero-eyebrow">Nous nous marions</div>
   </div>
   <div class="hero-bottom">
     <div class="hero-names">
@@ -381,9 +333,9 @@
       <span class="hero-amp">&amp;</span>
       <span class="name" id="n2"></span>
     </div>
-    <p class="hero-sub">Deux familles, deux pays, une seule alliance &mdash; un amour béni pour une vie à deux.</p>
+    <p class="hero-sub">On se marie et on est trop contents de le fêter avec vous.</p>
     <div class="hero-date">
-      <div class="d">Samedi 12 Décembre 2026</div>
+      <div class="d">Samedi 12 Décembre 2029</div>
       <div class="countdown" id="countdown">
         <div class="c-unit"><span class="c-num" id="cd-days">00</span><span class="c-label">Jours</span></div>
         <span class="c-sep">:</span>
@@ -393,9 +345,9 @@
         <span class="c-sep">:</span>
         <div class="c-unit"><span class="c-num" id="cd-sec">00</span><span class="c-label">Sec</span></div>
       </div>
-      <div class="p">PK18 &middot; Ntoum, Gabon</div>
+      <div class="p">Banacoro, Bamako</div>
     </div>
-    <a class="hero-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=PK18%2C%203e%20arrondissement%2C%20Ntoum%2C%20Gabon" target="_blank" rel="noopener">Voir sur la carte &nearr;</a>
+    <a class="hero-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Banacoro%2C%20Bamako%2C%20Mali" target="_blank" rel="noopener">Voir sur la carte &nearr;</a>
   </div>
   <div class="hero-scroll"><span>Découvrir</span><span class="stick"></span></div>
 </section>
@@ -408,38 +360,28 @@
     <div class="reveal">
       <div class="eyebrow" style="text-align:center;">Invitation</div>
       <div class="invite-card" style="margin-top:18px;">
-        <p class="quote">&laquo; Deux familles, deux pays, une seule alliance,<br>un amour béni pour une vie à deux. &raquo;</p>
+        <p class="quote">&laquo; Un jour de plus pour dire oui, entourés de ceux qu'on aime. &raquo;</p>
 
         <div class="divider"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
 
-        <p class="clans">
-          Les clans <b>Aziza</b>, <b>Ayandji</b>, <b>Aguédjé</b>, <b>Guibassa</b> et <b>EFAK</b>,<br>
-          ainsi que les familles <b>Olowolagba</b>, <b>Bokossa</b> et <b>Ogandagu&rsquo;éngouwa</b>,
-        </p>
         <p class="invite-body">
-          ont l'immense joie et l'honneur de vous faire part du mariage coutumier<br>
-          et de la bénédiction nuptiale de leurs enfants&nbsp;:
+          Nous avons la joie de vous inviter à notre mariage&nbsp;:
         </p>
 
         <div class="couple-block">
-          <span class="who">Ngalou Pono Sara</span>
+          <span class="who">Amadou</span>
           <span class="amp">&amp;</span>
-          <span class="who">Olowolagba Man Su</span>
+          <span class="who">Ayshe</span>
         </div>
 
         <div class="divider"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
 
         <p class="venue">
-          La cérémonie se tiendra à la <b>résidence familiale</b>,<br>
-          <a class="venue-link" href="https://www.google.com/maps/search/?api=1&amp;query=PK18%2C%203e%20arrondissement%2C%20Ntoum%2C%20Gabon" target="_blank" rel="noopener">
-            située au <b>PK18</b>, dans le 3<sup>e</sup> arrondissement<br>de la commune de <b>Ntoum</b> &nearr;
+          La cérémonie se tiendra à<br>
+          <a class="venue-link" href="https://www.google.com/maps/search/?api=1&amp;query=Banacoro%2C%20Bamako%2C%20Mali" target="_blank" rel="noopener">
+            <b>Banacoro</b>, <b>Bamako</b> &nearr;
           </a>
         </p>
-
-        <div class="divider"><span class="bar"></span><span class="dot"></span><span class="bar"></span></div>
-
-        <p class="verse">&laquo; Pose-moi sur ton c&oelig;ur comme un bijou précieux,<br>garde-moi près de toi,<br>comme un bracelet gravé à ton nom. &raquo;</p>
-        <p class="verse-ref">Cantique des Cantiques 8:6</p>
       </div>
     </div>
   </div>
@@ -468,7 +410,7 @@
 
     <div class="t-final reveal">
       <div class="script">Que la fête commence !</div>
-      <p>Nous vous invitons à partager avec nous chaque étape de cette journée exceptionnelle, placée sous le signe de l'amour, de la tradition, de la famille et de la bénédiction.</p>
+      <p>Venez fêter cette belle journée avec nous.</p>
     </div>
   </div>
 </section>
@@ -481,7 +423,7 @@
     <div class="reveal" style="text-align:center;">
       <div class="eyebrow">Dress code</div>
       <h2 style="font-size:1.8rem; margin-top:10px;">Le pagne de la famille</h2>
-      <p class="dress-note" style="margin-top:14px;">Chaque famille porte sa propre étoffe &mdash; indigo côté marié, ambre côté mariée &mdash; pour un cortège en harmonie.</p>
+      <p class="dress-note" style="margin-top:14px;">Un pagne pour chaque côté de la famille, pour être assortis le jour J.</p>
     </div>
 
     <div class="swatch-row reveal-stagger">
@@ -495,17 +437,7 @@
       </div>
     </div>
 
-    <div class="vendor-card reveal">
-      <div class="tag">Pour vous procurer le pagne</div>
-      <div class="name">Bah Ilabiou &mdash; Vente de pagnes</div>
-      <a class="addr" href="https://www.google.com/maps/search/?api=1&amp;query=March%C3%A9%20Mont-Bou%C3%ABt%2C%20Box%20M25" target="_blank" rel="noopener">Marché Mont-Bouët, Box M25 &nearr;</a>
-      <div class="phones">
-        <a href="tel:+24166519177">066 51 91 77</a>
-        <a href="tel:+24165886821">065 88 68 21</a>
-        <a href="tel:+24177557036">077 55 70 36</a>
-      </div>
-    </div>
-    <p class="dress-note">Merci de respecter le dress code afin de faire de cette célébration un moment encore plus harmonieux.</p>
+    <p class="dress-note">Merci de respecter le dress code.</p>
   </div>
 </section>
 
@@ -514,51 +446,23 @@
   <div class="container">
     <div class="reveal" style="text-align:center;">
       <div class="eyebrow">Notre histoire</div>
-      <h2 style="font-size:1.8rem; margin-top:10px;">Sara &amp; Man Su</h2>
+      <h2 style="font-size:1.8rem; margin-top:10px;">Amadou &amp; Ayshe</h2>
     </div>
-    <div class="gallery-single reveal">
-      <img src="assets/photo-3.png" alt="Sara et Man Su, Luxembourg">
+    <div class="gallery-two reveal">
+      <div class="gallery-single"><img src="assets/couple.jpeg" alt="Amadou et Ayshe"></div>
+      <div class="gallery-single"><img src="assets/couple-2.jpeg" alt="Amadou et Ayshe"></div>
     </div>
-    <p class="gift-note reveal">Votre présence sera notre plus beau cadeau.<br>Pour ceux qui souhaitent nous offrir un présent,<br>nous privilégions les cadeaux en numéraire.</p>
-  </div>
-</section>
-
-<!-- ============ CONTACTS ============ -->
-<section class="contact-section section-photo-bg soft">
-  <div class="bg-img" style="background-image:var(--hero-photo); background-position:center 15%;"></div>
-  <div class="bg-wash"></div>
-  <div class="container">
-    <div class="reveal" style="text-align:center;">
-      <div class="eyebrow">Besoin d'infos ?</div>
-      <h2 style="font-size:1.8rem; margin-top:10px;">Contacts</h2>
-      <p class="dress-note" style="margin-top:14px;">Pour toute question sur la cérémonie, n'hésitez pas à nous joindre.</p>
-    </div>
-    <div class="contact-row reveal-stagger">
-      <div class="contact-card">
-        <div class="c-phone">+241 62 66 66 77</div>
-        <div class="c-actions">
-          <a href="tel:+24162666677">Appeler</a>
-          <a class="whatsapp" href="https://wa.me/24162666677" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-      </div>
-      <div class="contact-card">
-        <div class="c-phone">+241 07 37 34 37</div>
-        <div class="c-actions">
-          <a href="tel:+24107373437">Appeler</a>
-          <a class="whatsapp" href="https://wa.me/24107373437" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-      </div>
-    </div>
+    <p class="gift-note reveal">Votre présence est le plus beau des cadeaux.</p>
   </div>
 </section>
 
 <footer>
   <div class="footer-couple">
-    <span class="who">Sara</span>
+    <span class="who">Amadou</span>
     <span class="amp">&amp;</span>
-    <span class="who">Man Su</span>
+    <span class="who">Ayshe</span>
   </div>
-  <div class="names">12 &middot; 12 &middot; 2026</div>
+  <div class="names">12 &middot; 12 &middot; 2029</div>
   <div class="countdown footer-countdown" id="countdown2">
     <div class="c-unit"><span class="c-num" id="cd2-days">00</span><span class="c-label">Jours</span></div>
     <span class="c-sep">:</span>
@@ -568,7 +472,7 @@
     <span class="c-sep">:</span>
     <div class="c-unit"><span class="c-num" id="cd2-sec">00</span><span class="c-label">Sec</span></div>
   </div>
-  <div class="fine">PK18, NTOUM &mdash; AVEC AMOUR &amp; GRATITUDE</div>
+  <div class="fine">BAMAKO &mdash; AVEC AMOUR &amp; GRATITUDE</div>
 </footer>
 
 <script>
@@ -583,8 +487,8 @@
       el.appendChild(s);
     });
   }
-  buildName(document.getElementById("n1"), "Sara", 0.75);
-  buildName(document.getElementById("n2"), "Man Su", 1.05);
+  buildName(document.getElementById("n1"), "Amadou", 0.75);
+  buildName(document.getElementById("n2"), "Ayshe", 1.05);
 
   function pad(n){ return String(n).padStart(2,"0"); }
   function setCountdown(prefix, days, hours, mins, secs){
@@ -598,7 +502,7 @@
     if(s) s.textContent = pad(secs);
   }
   function updateCountdown(){
-    var target = new Date("2026-12-12T13:00:00");
+    var target = new Date("2029-12-12T13:00:00");
     var diff = target - new Date();
     if(diff < 0) diff = 0;
     var days = Math.floor(diff/(1000*60*60*24));
@@ -616,7 +520,7 @@
       if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
     });
   }, {threshold:0.18});
-  document.querySelectorAll(".reveal, .reveal-stagger, .timeline, .t-item, .gallery-grid .ph").forEach(function(el){ io.observe(el); });
+  document.querySelectorAll(".reveal, .reveal-stagger, .timeline, .t-item").forEach(function(el){ io.observe(el); });
 
   var canvas = document.getElementById("hero-canvas");
   var ctx = canvas.getContext("2d");
